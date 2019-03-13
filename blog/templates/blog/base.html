@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {% load static %}
+    {% block title %}
+        <title>李磊个人代码分享网站</title>
+    {% endblock %}
+    {% block meta %}
+        <meta charset="UTF-8">
+        <meta name="keywords" content="Python，爬虫，算法，机器学习"/>
+        <meta name="description" content="一个个人网站，专注IT技术分享及记录生活"/>
+    {% endblock %}
+    <meta name="author" content="lilei"/>
+    <meta name="baidu-site-verification" content=""/>
+    <meta name="google-site-verification" content=""/>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+    <!--Bootstrap4-->
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.1.0/css/bootstrap.min.css"/>
+    <script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdn.staticfile.org/popper.js/1.12.5/umd/popper.min.js"></script>
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/4.1.0/js/bootstrap.min.js"></script>
+    <!--网站图标：elusive-->
+    <link rel="stylesheet" href="{% static 'blog/css/elusive-icons.min.css' %}">
+    <link rel="icon" href="{% static "blog/images/favicon.ico" %}">
+
+
+    <!--网站地图可视化：echarts-->
+    <script src="http://echarts.baidu.com/gallery/vendors/echarts/echarts.min.js"></script>
+    <script src="http://echarts.baidu.com/gallery/vendors/echarts-gl/echarts-gl.min.js"></script>
+    <script src="http://echarts.baidu.com/gallery/vendors/echarts-stat/ecStat.min.js"></script>
+    <script src="http://echarts.baidu.com/gallery/vendors/echarts/extension/dataTool.min.js"></script>
+    <script src="http://echarts.baidu.com/gallery/vendors/echarts/map/js/china.js"></script>
+    <script src="http://echarts.baidu.com/gallery/vendors/echarts/map/js/world.js"></script>
+    <script src="https://api.map.baidu.com/api?v=2.0&ak=x2ZTlRkWM2FYoQbvGOufPnFK3Fx4vFR1"></script>
+    <script src="http://echarts.baidu.com/gallery/vendors/echarts/extension/bmap.min.js"></script>
+    <script src="http://echarts.baidu.com/gallery/vendors/simplex.js"></script>
+
+    <!--关于页面-->
+    <script src="{% static 'blog/js/site-map-figure.js' %}"></script>
+    <!--资源页面-->
+    <script src="{% static 'blog/js/resource.js' %}"></script>
+    <!--JS-->
+    <script src="{% static "blog/js/nav-loop-message.js" %}"></script>
+    <script src="{% static "blog/js/approve.js" %}"></script>
+    <script src="{% static "blog/js/comment.js" %}"></script>
+    <script src="{% static "blog/js/public.js" %}"></script>
+    <script src="{% static "blog/js/message.js" %}"></script>
+    <!--CSS-->
+    <link rel="stylesheet" href="{% static 'blog/css/public.css' %}"/>
+    <!--editor.md-->
+    <link rel="stylesheet" href="{% static 'blog/css/editormd.min.css' %}"/>
+    <link rel="stylesheet" href="{% static 'blog/lib/codemirror/codemirror.min.css' %}">
+    <link rel="stylesheet" href="{% static 'blog/lib/codemirror/addon/dialog/dialog.css' %}">
+    <link rel="stylesheet" href="{% static 'blog/lib/codemirror/addon/search/matchesonscrollbar.css' %}">
+    <script src="{% static "blog/lib/marked.min.js" %}"></script>
+    <script src="{% static "blog/lib/prettify.min.js" %}"></script>
+    <script src="{% static "blog/lib/raphael.min.js" %}"></script>
+    <script src="{% static "blog/lib/underscore.min.js" %}"></script>
+    <script src="{% static "blog/lib/sequence-diagram.min.js" %}"></script>
+    <script src="{% static "blog/lib/flowchart.min.js" %}"></script>
+    <script src="{% static "blog/lib/jquery.flowchart.min.js" %}"></script>
+    <script src="{% static "blog/js/editormd.min.js" %}"></script>
+    <script>
+    var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?3883c6a1716c7f97216e75b439a1379b";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+</script>
+</head>
+<body class="bg container-fluid" id="bb" style="width: 100%;">
+<!--导航开始-->
+{% include "blog/navigation.html" %}
+<!--导航结束-->
+<!--主体框架开始-->
+<div class="row" style="margin-top: 100px">
+    <div class="col-sm-9">
+        <!--左侧开始-->
+        {% block content %}
+        {% endblock %}
+        <!--左侧结束-->
+    </div>
+    <div class="col-sm-3">
+        <!--右侧开始-->
+        {% include "blog/right.html" %}
+        <!--右侧结束-->
+    </div>
+</div>
+<!--主题框架结束-->
+<!--底部开始-->
+{% include "blog/footer.html" %}
+<script>
+    $.ajaxSetup({headers: {"X-CSRFToken": '{{ csrf_token }}'}});
+</script>
+</body>
+</html>
